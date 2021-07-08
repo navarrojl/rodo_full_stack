@@ -3,4 +3,5 @@ module.exports = {
     models: ['IX1', 'IX2', 'IX3'],
     years: [2018, 2019, 2020, 2021],
     prices: [2000, 4000, 6000, 8000, 10000],
+    getCarsUrl: 'http://localhost:8080/api/cars'
 };

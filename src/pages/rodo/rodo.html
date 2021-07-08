@@ -6,7 +6,7 @@
             <CustomSelect :items="models" label="Model" @update-current-value="updateFilters"></CustomSelect>
             <CustomSelect :items="years" label="Year" @update-current-value="updateFilters"></CustomSelect>
             <CustomSelect :items="prices" label="Price" @update-current-value="updateFilters"></CustomSelect>
-            <v-btn large outlined dark class="search_btn" @click="search">
+            <v-btn large outlined dark class="search_btn" :loading="loading" @click="search">
                 Search
             </v-btn>
         </div>

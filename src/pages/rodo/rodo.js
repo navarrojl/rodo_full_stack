@@ -1,6 +1,7 @@
-import GlobalValues from './../../utils/global-values';
+import GlobalValues from '@/utils/global-values';
 import CustomHeader from '@/components/header';
 import CustomSelect from '@/components/select';
+import * as APIHandler from '@/utils/APIHandler';
 
 export default {
   name: 'rodo',
@@ -14,7 +15,9 @@ export default {
       models: GlobalValues.models,
       years: GlobalValues.years,
       prices: GlobalValues.prices,
+      getCarsUrl: GlobalValues.getCarsUrl,
       filters: [],
+      loading: false,
     }
   },
   mounted() {
@@ -26,9 +29,26 @@ export default {
       this.filters = this.filters.filter(filter => filter.type != new_filter.type);
       this.filters.push(new_filter);
     },
-    search() {
-      console.log(this.filters)
-    }
+    async search() {
+      try {
+        this.loading = true;
+        let params = this.createGetRequestParams();
+        let res = await this.getCars(params);
+        this.loading = false;
+      } catch (e) {
+        this.loading = false;
+      }
+    },
+    createGetRequestParams(){
+      let params = {};
+      this.filters.forEach(filter => {
+        params[filter.type] = filter.value;
+      });
+      return params;
+    },
+    async getCars(params) {
+      return await APIHandler.get(this.getCarsUrl, params);
+    },
   }
 }
 
