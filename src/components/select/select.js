@@ -25,12 +25,12 @@ export default {
       }
       this.$emit('update-current-value', filter);
     },
-    mounted() {
+  },
+  mounted() {
 
-    },
-    methods: {
+  },
+  methods: {
 
-    }
   }
 }
 
