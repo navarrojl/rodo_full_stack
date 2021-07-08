@@ -1,0 +1,13 @@
+<v-main>
+  <v-data-table dense :headers="options.headers" :items="options.data" hide-default-footer hide-default-header>
+    <template v-slot:header="{ props: { headers } }">
+      <thead>
+        <tr>
+          <th v-for="header in headers">
+            <span>{{header.text}}</span>
+          </th>
+        </tr>
+      </thead>
+    </template>
+  </v-data-table>
+</v-main>
