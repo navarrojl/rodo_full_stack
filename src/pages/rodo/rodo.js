@@ -21,6 +21,7 @@ export default {
       filters: [],
       loading: false,
       totalVehiclesTableOptions: GlobalValues.totalVehiclesTableOptions,
+      makeAndModelVehiclesTableOptions: GlobalValues.makeAndModelVehiclesTableOptions,
     }
   },
   mounted() {
@@ -39,8 +40,8 @@ export default {
         let res = await this.getCars(params);
         if (res) {
           this.uptadateTotalVehicleTable(res);
+          this.uptadateMakeAndModelVehicleTable(res);
         }
-        console.log(res)
         this.loading = false;
       } catch (e) {
         console.log(e)
@@ -59,7 +60,7 @@ export default {
     },
     uptadateTotalVehicleTable(data) {
       let total_vehicles = data.count != null && data.count != undefined ? data.count : 'N/A';
-      let min_price = data.min_price != null && data.min_price != undefined ? '$' + data.min_price: 'N/A';
+      let min_price = data.min_price != null && data.min_price != undefined ? '$' + data.min_price : 'N/A';
       let max_price = data.max_price != null && data.max_price != undefined ? '$' + data.max_price : 'N/A';
       let median_price = data.median_price != null && data.median_price != undefined ? '$' + data.median_price : 'N/A';
       this.totalVehiclesTableOptions.headers = [
@@ -71,6 +72,18 @@ export default {
         { text: 'Median Price', value: median_price },
         { text: 'Highest Price', value: max_price },
       ]
+    },
+    uptadateMakeAndModelVehicleTable(data) {
+      this.makeAndModelVehiclesTableOptions.data = [];
+      if (data.grouped_data != null && data.grouped_data != undefined) {
+        let grouped_data = data.grouped_data;
+        let make_and_models_keys = Object.keys(grouped_data);
+        make_and_models_keys.forEach(make_and_model => {
+          this.makeAndModelVehiclesTableOptions.data.push(
+            { text: make_and_model, value: grouped_data[make_and_model].count }
+          );
+        });
+      }
     }
   }
 }
