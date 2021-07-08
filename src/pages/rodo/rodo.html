@@ -1,5 +1,14 @@
 <v-app>
     <v-main class="wrap">
-        <Header></Header>
+        <CustomHeader class="my-4 py-4"></CustomHeader>
+        <div>
+            <CustomSelect :items="makes" label="Make" @update-current-value="updateFilters"></CustomSelect>
+            <CustomSelect :items="models" label="Model" @update-current-value="updateFilters"></CustomSelect>
+            <CustomSelect :items="years" label="Year" @update-current-value="updateFilters"></CustomSelect>
+            <CustomSelect :items="prices" label="Price" @update-current-value="updateFilters"></CustomSelect>
+            <v-btn large outlined dark class="search_btn" @click="search">
+                Search
+            </v-btn>
+        </div>
     </v-main>
 </v-app>
