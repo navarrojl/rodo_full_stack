@@ -37,19 +37,19 @@ export default {
     async search() {
       try {
         this.show_error = false;
-        this.loading = true;
+        this.setLoading(true);
         let params = this.createGetRequestParams();
         let res = await this.getCars(params);
         if (res) {
           this.uptadateTotalVehicleTable(res);
           this.uptadateMakeAndModelVehicleTable(res);
         }
-        this.loading = false;
+        this.setLoading(false);
       } catch (e) {
         this.show_error = true;
         this.uptadateTotalVehicleTable(null);
         this.uptadateMakeAndModelVehicleTable(null);
-        this.loading = false;
+        this.setLoading(false);
       }
     },
     createGetRequestParams() {
@@ -88,6 +88,11 @@ export default {
           );
         });
       }
+    },
+    setLoading(status) {
+      this.loading = status;
+      this.totalVehiclesTableOptions.loading = status;
+      this.makeAndModelVehiclesTableOptions.loading = status;
     }
   }
 }

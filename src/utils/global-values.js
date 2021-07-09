@@ -15,6 +15,7 @@ module.exports = {
             { text: 0, value: 'value', sortable: false }
         ],
         hideFooter: true,
+        loading: false,
     },
     makeAndModelVehiclesTableOptions: {
         data: [],
@@ -23,5 +24,6 @@ module.exports = {
             { text: '', value: 'value', sortable: true }
         ],
         hideFooter: false,
+        loading: false,
     },
 };
