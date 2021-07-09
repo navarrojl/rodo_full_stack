@@ -1,5 +1,6 @@
 <v-main>
-  <v-data-table dense :headers="options.headers" :items="options.data" :hide-default-footer="options.hideFooter" hide-default-header>
+  <v-data-table dense :headers="options.headers" :items="options.data" :hide-default-footer="options.hideFooter"
+    hide-default-header :mobile-breakpoint="0">
     <template v-slot:header="{ props: { headers } }">
       <thead>
         <tr>
