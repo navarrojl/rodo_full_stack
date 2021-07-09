@@ -1,5 +1,5 @@
 export default {
-  name: 'select',
+  name: 'custom-table',
   components: {},
   props: {
     options: {

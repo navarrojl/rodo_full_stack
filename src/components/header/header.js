@@ -1,6 +1,6 @@
 
 export default {
-  name: 'header',
+  name: 'custom-header',
   components: {},
   props: {
   },

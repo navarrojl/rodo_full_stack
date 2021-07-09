@@ -1,5 +1,5 @@
 export default {
-  name: 'select',
+  name: 'custom-select',
   components: {},
   props: {
     items: {
