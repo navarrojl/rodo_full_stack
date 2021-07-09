@@ -1,6 +1,7 @@
 <v-app>
     <v-main class="wrap">
         <CustomHeader class="my-4 py-4"></CustomHeader>
+        <v-alert v-if="show_error" type="error">Try again later. Something happened at our end</v-alert>
         <div>
             <CustomSelect :items="makes" label="Make" @update-current-value="updateFilters"></CustomSelect>
             <CustomSelect :items="models" label="Model" @update-current-value="updateFilters"></CustomSelect>
