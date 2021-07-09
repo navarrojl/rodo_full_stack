@@ -1,7 +1,7 @@
 module.exports = {
     getCarsUrl: 'http://localhost:8080/api/cars',
-    makes: ['Acura', 'Audi', 'BMW'],
-    models: ['IX1', 'IX2', 'IX3'],
+    makes: ['Acura', 'Audi', 'BMW', 'Alfa Romeo'],
+    models: ['ILX', 'MDX', 'NSX', 'RDX'],
     years: [2018, 2019, 2020, 2021],
     prices: [2000, 4000, 6000, 8000, 10000],
     totalVehiclesTableOptions: {
